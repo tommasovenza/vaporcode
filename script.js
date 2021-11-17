@@ -7,10 +7,8 @@
 // 'cause you have to solve it by using a language that you've never seen before.
 
 function vaporwaveReduce(string) {
-  const array = []
-  for (let index = 0; index < string.length; index++) {
-    array.push(string[index])
-  }
+  const array = string.split("")
+
   const stringReduce = array.reduce((firstVal, currentVal) => {
     if (currentVal === " ") {
       return (firstVal += "")
