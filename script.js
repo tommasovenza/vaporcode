@@ -9,7 +9,10 @@
 function vaporwaveReduce(string) {
   const array = string.split("")
 
-  const stringReduce = array.reduce((firstVal, currentVal) => {
+  const stringReduce = array.reduce((firstVal, currentVal, index, arr) => {
+    if (index === arr.length - 1) {
+      return (firstVal += currentVal)
+    }
     if (currentVal === " ") {
       return (firstVal += "")
     } else {
@@ -17,9 +20,7 @@ function vaporwaveReduce(string) {
     }
   }, "")
 
-  const result = stringReduce.substr(1, stringReduce.length - 2).toUpperCase()
-
-  return result
+  return stringReduce.toUpperCase()
 }
 
 function vaporwave(string) {
@@ -34,6 +35,22 @@ function vaporwave(string) {
   }
   // remove last two empty characters added before
   const result = finalString.substr(0, finalString.length - 2)
+
+  return result
+}
+
+function oldVaporwaveReduce(string) {
+  const array = string.split("")
+
+  const stringReduce = array.reduce((firstVal, currentVal) => {
+    if (currentVal === " ") {
+      return (firstVal += "")
+    } else {
+      return (firstVal += " " + currentVal + " ")
+    }
+  }, "")
+
+  const result = stringReduce.substr(1, stringReduce.length - 2).toUpperCase()
 
   return result
 }
